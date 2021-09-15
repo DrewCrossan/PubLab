@@ -13,7 +13,7 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(1000, self.customer.wallet)
 
     def test_wallet_reduced(self):
-        drink = Drink("Bud", 2)
+        drink = Drink("Bud", 2, 1)
         self.customer.wallet_reduced(drink)
         self.assertEqual(998, self.customer.wallet)
 

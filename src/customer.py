@@ -5,6 +5,7 @@ class Customer:
         self.name = input_name
         self.wallet = input_wallet
         self.age = input_age
+        self.drunkeness = 0
 
     def wallet_reduced(self, beverage):
         self.wallet -= beverage.drink_price
