@@ -1,6 +1,7 @@
 import unittest
 from src.customer import Customer
 from src.drink import Drink
+from src.pub import Pub
 
 class TestCustomer(unittest.TestCase):
     def setUp(self):
@@ -18,4 +19,18 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(998, self.customer.wallet)
 
 
-        
+    def test_increase_customer_drunkness(self):
+        drink = Drink("Bud", 2, 1)
+        drink2 = Drink("JD & Coke", 5, 3)
+        self.customer.increase_customer_drunkness(drink)
+        self.customer.increase_customer_drunkness(drink2)
+        self.assertEqual(4, self.customer.drunkeness)
+
+    def test_customer_too_drunk(self):
+        drink = Drink("Bud", 2, 1)
+        drink2 = Drink("JD & Coke", 5, 3)
+        drink3 = Drink("JD & Coke", 5, 3)
+        self.customer.increase_customer_drunkness(drink)
+        self.customer.increase_customer_drunkness(drink2)
+        self.customer.increase_customer_drunkness(drink3)
+        self.assertEqual(True, self.customer.customer_too_drunk())

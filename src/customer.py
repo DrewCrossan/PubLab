@@ -10,6 +10,13 @@ class Customer:
     def wallet_reduced(self, beverage):
         self.wallet -= beverage.drink_price
 
+    def increase_customer_drunkness(self, drink):
+        self.drunkeness += drink.alcohol_level
+
+    def customer_too_drunk(self):
+        if self.drunkeness > 5:
+            return True
+        return False
 
 
         
