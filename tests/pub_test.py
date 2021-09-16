@@ -41,11 +41,15 @@ class TestPub(unittest.TestCase):
 
     def test_increase_pub_till_decrease_customer_wallet(self):
         drink = Drink("Peroni", 4, 1)
+        drink2 = Drink("Bud", 3, 1)
         self.pub.add_drink_to_list(drink)
+        self.pub.add_drink_to_list(drink2)
         self.pub.sell_drink_to_customer(drink)
         self.customer.wallet_reduced(drink)
         self.pub.increase_till(drink)
         self.assertEqual(104, self.pub.till)
+        self.assertEqual(996, self.customer.wallet)
+        self.assertEqual(1, len(self.pub.drinks))
 
     def test_check_age(self):
         person = Customer("Marion", 25, 21)

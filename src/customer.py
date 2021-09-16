@@ -7,8 +7,8 @@ class Customer:
         self.age = input_age
         self.drunkeness = 0
 
-    def wallet_reduced(self, beverage):
-        self.wallet -= beverage.drink_price
+    def wallet_reduced(self, drink):
+        self.wallet -= drink.drink_price
 
     def increase_customer_drunkness(self, drink):
         self.drunkeness += drink.alcohol_level
